@@ -19,3 +19,8 @@ for x in range(2):
     for y in range(3+1):
         print("Inner loop iteration number " + str(y))
     print("Exit inner loop") 
+    
+    #print each element separately
+    languages = ["c++" , "python" , "java" , "Ruby" ]
+for language in languages:
+    print(language)
