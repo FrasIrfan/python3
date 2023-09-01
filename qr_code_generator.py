@@ -1,20 +1,32 @@
 import qrcode
 from qrcode import constants
-# The above line imports the constants module from the qrcode library. 
-# It's used to specify error correction levels for the QR code.
 
+# Prompt the user for the data to encode in the QR code
+data = input("Enter the data to encode in the QR code: ")
+
+# Create a QRCode object with customizable parameters
 qr = qrcode.QRCode(
     version=1,
-    error_correction=constants.ERROR_CORRECT_L,
-    # Sets the error correction level to "L," which stands for low. 
-    # This level is suitable for QR codes with a relatively low chance of being damaged.
+    error_correction=constants.ERROR_CORRECT_H,  # Higher error correction for added reliability
     box_size=10,
     border=4,
 )
-data = "https://www.linkedin.com/in/frasirfan"
-qr.add_data(data)  # Use the 'data' variable containing the URL
-qr.make(fit=True)
-# The fit=True argument ensures that the QR code adjusts its size to fit the data properly.
 
-img = qr.make_image(fill_color="black", back_color="white")
-img.save('qr-code-linkedin.png')
+# Add the user-provided data to the QR code
+qr.add_data(data)
+
+# Generate the QR code
+qr.make(fit=True)
+
+# Specify custom colors for the QR code and background
+fill_color = input("Enter the QR code color (e.g., 'blue', '#FF0000', etc.): ")
+back_color = input("Enter the background color (e.g., 'white', '#00FF00', etc.): ")
+
+# Create the QR code image with the user-specified colors
+img = qr.make_image(fill_color=fill_color, back_color=back_color)
+
+# Save the QR code image with a custom filename
+filename = input("Enter the filename to save the QR code (e.g., 'my_qr_code.png'): ")
+img.save(filename)
+
+print(f"The QR code with the data '{data}' has been generated and saved as '{filename}'.")
