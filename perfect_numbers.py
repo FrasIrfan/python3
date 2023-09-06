@@ -1,3 +1,4 @@
+# A perfect number is a positive integer that equals the sum of its proper divisors, excluding itself.
 sum = 0
 i=0
 
