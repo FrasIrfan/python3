@@ -31,7 +31,7 @@ while True:
         input("\nDo you want to shop more?\nPress 1 for yes and 0 to dismiss: "))
 
     if input_val == 0:
-        print("Thank you for Shopping")
+        print("Thank you for Shopping!")
         break
     elif input_val != 1:
         print("Invalid input. Please enter 1 to continue shopping or 0 to dismiss.")
