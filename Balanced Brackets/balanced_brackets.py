@@ -1,6 +1,10 @@
 def isBalanced(string):
-    stack = [] # created an empty stack to keep track of opening brackets
-    bracket = {'{': '}', '(': ')', '[': ']'} # created a dictionary 
+    stack = []  # created an empty stack to keep track of opening brackets
+    bracket = {'{': '}', '(': ')', '[': ']'}  # created a dictionary
+
+# Check if the string length is odd (i.e., an unbalanced number of brackets)
+    if len(string) % 2 != 0:
+        return 'NO'
 
 # Iterate through each character in the input string.
     for char in string:
@@ -14,10 +18,11 @@ def isBalanced(string):
                 if bracket[top] != char:
                     return 'NO'
             # stack is empty
-            else: 
+            else:
                 return 'NO'
-            
+
     return "NO" if stack else "YES"
+
 
 result = isBalanced("{[()]}")
 print(result)
